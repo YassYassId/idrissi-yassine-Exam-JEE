@@ -7,6 +7,8 @@ import com.jee.idrissiyassineexamjee.entities.CreditPersonnel;
 import com.jee.idrissiyassineexamjee.entities.CreditProfessionnel;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CreditMapper {
     public CreditDTO toDTO(Credit credit) {
@@ -35,5 +37,9 @@ public class CreditMapper {
         }
 
         return dto;
+    }
+
+    public List<CreditDTO> toDTOs(List<Credit> credits) {
+        return credits.stream().map(this::toDTO).toList();
     }
 }
